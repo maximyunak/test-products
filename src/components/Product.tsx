@@ -1,8 +1,7 @@
 import { useAppDispatch, useAppSelector } from '@hooks';
-import { useFetchProducts } from '@shared/hooks/useFetchProducts';
 import { IProduct } from '@shared/types/IProduct';
 import { deleteProduct } from '@store/api';
-import React, { FC, useState, useEffect, MouseEvent } from 'react';
+import { FC, useState, useEffect, MouseEvent } from 'react';
 import { Link } from 'react-router-dom';
 
 interface ProductProps {
