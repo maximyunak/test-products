@@ -6,7 +6,6 @@
       "@store/*": ["store/*"],
       "@shared/*": ["shared/*"],
       "@components/*": ["components/*"]
-
       // Add more paths as needed
     },
     "composite": true,
