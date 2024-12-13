@@ -70,7 +70,7 @@ export const EditProduct: FC<IEditProduct> = ({ id, setIsEdit }) => {
   };
 
   return (
-    <div className="fixed w-screen h-screen left-0 top-0 bg-[#282828] bg-opacity-15 z-30">
+    <div className="fixed w-screen h-screen left-0 top-0 bg-[#282828] bg-opacity-15 z-50">
       <div className="max-w-[500px] absolute w-full top-1/2 right-1/2 translate">
         <div className="w-full rounded-xl bg-[#f1f1f1] shadow-xl sm:max-w-md xl:p-0">
           <div className="p-6 space-y-4 md:space-y-6 sm:p-8">
