@@ -14,10 +14,10 @@ const App: FC = () => {
         element={
           <Layout>
             <Routes>
-              <Route path="/" element={<Products />} />
-              {/* <Route path="/products" element={<Products />} /> */}
+              <Route path="/products" element={<Products />} />
               <Route path="/products/:id" element={<Product />} />
               <Route path="/create-product" element={<CreateProduct />} />
+              <Route path="*" element={<Products />} />
             </Routes>
           </Layout>
         }

@@ -2,27 +2,40 @@
 // import { useAppDispatch, useAppSelector } from '@hooks';
 // import React, { useEffect } from 'react';
 
-import { AddProduct } from '@components/AddProduct';
-import { Filter } from '@components/Filter';
-import { Pagination } from '@components/Pagination';
-import { Product } from '@components/Product';
-import { Search } from '@components/Search';
-import { useAppDispatch, useAppSelector } from '@hooks';
-import { IProduct } from '@shared/types/IProduct';
-import { LoadingStatus } from '@shared/types/enums';
-import { fetchProducts } from '@store/api';
-import { setCurrentPage } from '@store/productsSlice';
-import { useEffect } from 'react';
+import { AddProduct } from "@components/AddProduct";
+import { Filter } from "@components/Filter";
+import { Pagination } from "@components/Pagination";
+import { Product } from "@components/Product";
+import { Search } from "@components/Search";
+import { useAppDispatch, useAppSelector } from "@hooks";
+import { IProduct } from "@shared/types/IProduct";
+import { LoadingStatus } from "@shared/types/enums";
+import { fetchProducts } from "@store/api";
+import { setCurrentPage } from "@store/productsSlice";
+import { useEffect } from "react";
 
 export const Products = () => {
-  const { loading, products, error, currentPage, itemsPerPage, totalItems, searchText, showLiked } =
-    useAppSelector((state) => state.productsSlice);
+  const {
+    loading,
+    products,
+    error,
+    currentPage,
+    itemsPerPage,
+    totalItems,
+    searchText,
+    showLiked,
+  } = useAppSelector((state) => state.productsSlice);
 
   const dispatch = useAppDispatch();
 
   useEffect(() => {
     dispatch(
-      fetchProducts({ page: currentPage, limit: itemsPerPage, searchText: searchText, showLiked }),
+      fetchProducts({
+        page: currentPage,
+        limit: itemsPerPage,
+        searchText: searchText,
+        showLiked,
+      })
     );
   }, [dispatch, searchText, currentPage, totalItems, showLiked]);
 
@@ -36,6 +49,7 @@ export const Products = () => {
 
   return (
     <div>
+      a
       <div className="flex gap-3 items-center">
         <Search />
         <Filter />
@@ -54,7 +68,11 @@ export const Products = () => {
       </div>
       <div className="flex justify-center mt-10">
         {totalPages > 1 && (
-          <Pagination setPage={handleSetPage} currentPage={currentPage} totalPages={totalPages} />
+          <Pagination
+            setPage={handleSetPage}
+            currentPage={currentPage}
+            totalPages={totalPages}
+          />
         )}
       </div>
       <AddProduct />
