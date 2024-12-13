@@ -49,7 +49,6 @@ export const Products = () => {
 
   return (
     <div>
-      a
       <div className="flex gap-3 items-center">
         <Search />
         <Filter />
