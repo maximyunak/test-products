@@ -41,7 +41,7 @@ export const Products = () => {
         <Filter />
       </div>
       {/* <div className="flex  flex-wrap justify-between align-center"> */}
-      <div className="grid grid-cols-4 gap-4 mt-4">
+      <div className="grid grid-cols-1 min-[550px]:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 2xl:grid-cols-5 gap-4 mt-4">
         {loading === LoadingStatus.LOADING ? (
           <div>Loading...</div>
         ) : loading === LoadingStatus.SUCCEEDED ? (

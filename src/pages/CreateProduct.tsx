@@ -71,7 +71,7 @@ export const CreateProduct = () => {
   return (
     <div className="flex justify-center item-center fixed top-1/2 right-1/2 translate w-full">
       <div className="w-full rounded-xl bg-[#fbffdc] shadow-xl sm:max-w-md xl:p-0">
-        <div className="p-6 space-y-4 md:space-y-6 sm:p-8">
+        <div className="p-6 space-y-4 md:space-y-6 sm:p-8 max-sm:px-3">
           <h1 className="text-xl font-bold leading-tight tracking-tight text-center md:text-2xl">
             Add New Product
           </h1>

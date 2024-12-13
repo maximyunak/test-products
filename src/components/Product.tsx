@@ -45,7 +45,7 @@ export const Product: FC<ProductProps> = ({ product }) => {
 
   return (
     <Link to={`/products/${product.id}`}>
-      <div className="border-2 border-gray-300 p-4 h-[291px]">
+      <div className="border-2 border-gray-300 p-4">
         <div className="">
           <img
             src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTRKD78uVcymQ8c3JsiARmnFDxVvP49odCOhQ&s"
