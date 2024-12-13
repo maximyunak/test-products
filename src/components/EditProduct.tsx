@@ -1,7 +1,7 @@
-import { useAppDispatch } from '@hooks';
-import { editProduct } from '@store/api/editProduct';
-import React, { ChangeEvent, FC, useState } from 'react';
-import { Link } from 'react-router-dom';
+import { useAppDispatch } from "@hooks";
+import { editProduct } from "@store/api/editProduct";
+import React, { ChangeEvent, FC, useState } from "react";
+import { Link } from "react-router-dom";
 
 interface IEditProduct {
   id: string;
@@ -15,22 +15,22 @@ export interface IEditData {
 }
 
 export const EditProduct: FC<IEditProduct> = ({ id, setIsEdit }) => {
-  const [newPrice, setNewPrice] = useState<string>('');
-  const [newTitle, setNewTitle] = useState<string>('');
-  const [newDesc, setNewDesc] = useState<string>('');
+  const [newPrice, setNewPrice] = useState<string>("");
+  const [newTitle, setNewTitle] = useState<string>("");
+  const [newDesc, setNewDesc] = useState<string>("");
 
   const dispatch = useAppDispatch();
 
   const handleChange = (e: ChangeEvent<HTMLInputElement>, name: string) => {
     const value = e.target.value;
     switch (name) {
-      case 'title':
+      case "title":
         setNewTitle(value);
         break;
-      case 'desc':
+      case "desc":
         setNewDesc(value);
         break;
-      case 'price':
+      case "price":
         // @ts-ignore
         if (/\d+/.test(Number(value))) {
           setNewPrice(value);
@@ -49,16 +49,16 @@ export const EditProduct: FC<IEditProduct> = ({ id, setIsEdit }) => {
     e.preventDefault();
 
     const editData: IEditData = { id };
-    if (newTitle.trim() !== '') {
-      editData['title'] = newTitle;
+    if (newTitle.trim() !== "") {
+      editData["title"] = newTitle;
     }
-    if (newDesc.trim() !== '') {
-      editData['description'] = newDesc;
+    if (newDesc.trim() !== "") {
+      editData["description"] = newDesc;
     }
-    if (newPrice.trim() !== '') {
+    if (newPrice.trim() !== "") {
       const priceNum = parseFloat(newPrice);
       if (!isNaN(priceNum)) {
-        editData['price'] = priceNum;
+        editData["price"] = priceNum;
       } else {
         return;
       }
@@ -70,7 +70,7 @@ export const EditProduct: FC<IEditProduct> = ({ id, setIsEdit }) => {
   };
 
   return (
-    <div className="fixed w-screen h-screen left-0 top-0 bg-[#282828] bg-opacity-15">
+    <div className="fixed w-screen h-screen left-0 top-0 bg-[#282828] bg-opacity-15 z-30">
       <div className="max-w-[500px] absolute w-full top-1/2 right-1/2 translate">
         <div className="w-full rounded-xl bg-[#f1f1f1] shadow-xl sm:max-w-md xl:p-0">
           <div className="p-6 space-y-4 md:space-y-6 sm:p-8">
@@ -79,7 +79,10 @@ export const EditProduct: FC<IEditProduct> = ({ id, setIsEdit }) => {
             </h1>
             <form className="space-y-4 md:space-y-6" onSubmit={handleSubmit}>
               <div>
-                <label htmlFor="title" className="block mb-2 text-base font-semibold">
+                <label
+                  htmlFor="title"
+                  className="block mb-2 text-base font-semibold"
+                >
                   Product Title
                 </label>
                 <input
@@ -87,13 +90,16 @@ export const EditProduct: FC<IEditProduct> = ({ id, setIsEdit }) => {
                   name="title"
                   id="title"
                   value={newTitle}
-                  onChange={(e) => handleChange(e, 'title')}
+                  onChange={(e) => handleChange(e, "title")}
                   className="text-white transition bg-gray-600 border-gray-600 placeholder-gray-400 rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 text-sm"
                   placeholder="Enter a product title"
                 />
               </div>
               <div>
-                <label htmlFor="description" className="block mb-2 text-base font-semibold">
+                <label
+                  htmlFor="description"
+                  className="block mb-2 text-base font-semibold"
+                >
                   Product Description
                 </label>
                 <input
@@ -101,13 +107,16 @@ export const EditProduct: FC<IEditProduct> = ({ id, setIsEdit }) => {
                   name="description"
                   id="description"
                   value={newDesc}
-                  onChange={(e) => handleChange(e, 'desc')}
+                  onChange={(e) => handleChange(e, "desc")}
                   placeholder="Enter a product description"
                   className="text-white transition bg-gray-600 border-gray-600 placeholder-gray-400 rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 text-sm"
                 />
               </div>
               <div>
-                <label htmlFor="price" className="block mb-2 text-base font-semibold">
+                <label
+                  htmlFor="price"
+                  className="block mb-2 text-base font-semibold"
+                >
                   Price
                 </label>
                 <input
@@ -117,7 +126,7 @@ export const EditProduct: FC<IEditProduct> = ({ id, setIsEdit }) => {
                   min="0"
                   step="0.01"
                   value={newPrice}
-                  onChange={(e) => handleChange(e, 'price')}
+                  onChange={(e) => handleChange(e, "price")}
                   placeholder="Enter a product price"
                   className="text-white transition bg-gray-600 border-gray-600 placeholder-gray-400 rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 text-sm"
                 />
